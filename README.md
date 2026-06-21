@@ -2,7 +2,7 @@
 
 A hyper-local, AI-written newsletter of events near **downtown Redmond, WA**.
 
-An AI agent reads local feeds and email newsletters (via a [Lion Reader](https://lion-reader.com)
+An AI agent reads local feeds and email newsletters (via a [Lion Reader](https://lionreader.com)
 account), decides what's worth knowing about for readers who live ~20 minutes'
 walk from downtown Redmond, and files one short report per event. The site is a
 static [Eleventy](https://www.11ty.dev/) build published to GitHub Pages, with an
