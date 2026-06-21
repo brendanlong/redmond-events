@@ -1,0 +1,59 @@
+# Editorial profile for the events agent.
+# This is the agent's "assignment desk": who the readers are, what they care
+# about, and how far they'll travel. Tune freely as tastes change.
+
+reference_point:
+  name: "downtown Redmond, WA"
+  # Distances in articles are described relative to here. The core readers live
+  # roughly a 20-minute walk from downtown Redmond.
+  note: "Core readers are ~20 minutes' walk from downtown Redmond."
+
+# How far readers will travel, and how high the bar is for each tier.
+# The closer it is, the lower the bar. Anything genuinely walkable is, by itself,
+# interesting — even routine things like a farmers market.
+regions:
+  - id: walk
+    label: "Walking distance of downtown Redmond"
+    travel: "a walk or very short drive"
+    bar: "very low — proximity alone makes it worth a mention"
+  - id: eastside
+    label: "Eastside drive (Bellevue, Kirkland, Woodinville, Sammamish, Issaquah)"
+    travel: "a 15–25 minute drive"
+    bar: "moderate — should match an interest or be notably fun/novel"
+  - id: seattle
+    label: "Seattle"
+    travel: "a ~30 minute drive, with annoying traffic and parking"
+    bar: "high — only when it's particularly interesting"
+  - id: other
+    label: "Farther afield"
+    travel: "a longer trip"
+    bar: "very high — exceptional, can't-miss events only"
+
+# What the readers tend to enjoy. Not exhaustive — use judgment, and lean
+# toward novel/fun. These are seeds gathered from past events they liked.
+interests:
+  - id: live-music
+    label: "Live music (broad taste)"
+    note: >
+      Wide range — power/folk metal, nerd-rock, indie, and pop all count.
+      Past/wanted artists: Alestorm, Amaranthe, Ice Nine Kills, Machinae Supremacy,
+      I Fight Dragons, Jonathan Coulton, Death Cab for Cutie, Marina, Taylor Swift.
+      Treat most concerts as potentially interesting.
+  - id: festivals
+    label: "Festivals & cultural celebrations"
+    note: "e.g. a Holi celebration at Marymoor Park — fun and novel even without a personal tie."
+  - id: food
+    label: "Food events, farmers markets, veg/vegan"
+    note: "Vegetarian/vegan festivals, food festivals, and walkable farmers markets."
+  - id: outdoors
+    label: "Hiking & paddleboarding"
+    note: "Watch the Gearhouse event schedule (a key source) for guided hikes/paddles."
+  - id: trivia
+    label: "Trivia nights"
+    note: "Especially nerdy / millennial-aimed trivia."
+  - id: rec-sports
+    label: "Recreational sports"
+    note: "e.g. dodgeball and similar casual/social leagues or one-offs."
+  - id: dinosaurs
+    label: "Dinosaurs & natural history"
+    note: "Exhibits, talks, anything paleontology-flavored."

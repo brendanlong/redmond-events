@@ -1,0 +1,38 @@
+---
+layout: base.njk
+---
+<article class="event">
+  <p class="back"><a href="{{ '/' | url }}">&larr; All upcoming events</a></p>
+  <h2>{{ title }}</h2>
+
+  <ul class="facts">
+    <li class="when">
+      <strong>When:</strong>
+      {{ start | readable }}{% if end %} &ndash; {{ end | readable }}{% endif %}
+    </li>
+    <li class="where">
+      <strong>Where:</strong>
+      {% if address %}
+        <a href="https://www.google.com/maps/search/?api=1&amp;query={{ address | urlencode }}">{{ venue }}{% if venue %} — {% endif %}{{ address }}</a>
+      {% else %}
+        {{ venue }}
+      {% endif %}
+    </li>
+    {% if cost %}<li class="cost"><strong>Cost:</strong> {{ cost }}</li>{% endif %}
+  </ul>
+
+  <div class="event-body">{{ content | safe }}</div>
+
+  {% if url %}
+    <p class="official"><a href="{{ url }}">Official event page &rarr;</a></p>
+  {% endif %}
+  {% if tags %}
+    <p class="tags">
+      {% for t in tags %}<span class="tag">{{ t }}</span>{% endfor %}
+    </p>
+  {% endif %}
+
+  <p class="add-cal">
+    <a href="{{ '/events.ics' | url }}">Subscribe to the full calendar (.ics)</a>
+  </p>
+</article>

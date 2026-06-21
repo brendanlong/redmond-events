@@ -1,0 +1,29 @@
+---
+permalink: /events.ics
+eleventyExcludeFromCollections: true
+---
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//near-redmond//events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Near Redmond Events
+X-WR-TIMEZONE:America/Los_Angeles
+{%- for e in collections.events %}
+{%- set abs = site.origin + (e.url | url) %}
+BEGIN:VEVENT
+UID:{{ abs }}
+DTSTAMP:{{ site.buildTime | icsDate }}
+DTSTART:{{ e.data.start | icsDate }}
+{%- if e.data.end %}
+DTEND:{{ e.data.end | icsDate }}
+{%- endif %}
+SUMMARY:{{ e.data.title | icsText | safe }}
+{%- if e.data.address or e.data.venue %}
+LOCATION:{{ (e.data.venue ~ (", " if e.data.venue and e.data.address) ~ e.data.address) | icsText | safe }}
+{%- endif %}
+URL:{{ abs }}
+DESCRIPTION:{{ ("More: " ~ abs) | icsText | safe }}
+END:VEVENT
+{%- endfor %}
+END:VCALENDAR

@@ -1,0 +1,41 @@
+---
+layout: base.njk
+title: Upcoming events near downtown Redmond
+---
+<section class="intro">
+  <p>
+    Hand-picked events around downtown Redmond — and worth-the-drive picks across
+    the Eastside and Seattle. Subscribe via
+    <a href="{{ '/feed.xml' | url }}">RSS</a> or the
+    <a href="{{ '/events.ics' | url }}">calendar</a>.
+  </p>
+</section>
+
+{% set up = collections.events | upcoming %}
+<section class="upcoming">
+  <h2>Upcoming</h2>
+  {% if up.length == 0 %}
+    <p class="empty">Nothing on the calendar right now — check back soon.</p>
+  {% endif %}
+  {% for e in up %}
+    <article class="card">
+      <h3><a href="{{ e.url }}">{{ e.data.title }}</a></h3>
+      <p class="meta">
+        <span class="when">{{ e.data.start | readableDay }}</span>
+        <span class="sep">·</span>
+        <span class="where">{{ e.data.venue }}</span>
+        {% if e.data.region %}<span class="region region-{{ e.data.region }}">{{ e.data.region }}</span>{% endif %}
+      </p>
+    </article>
+  {% endfor %}
+</section>
+
+<section class="recent">
+  <h2>Recently posted</h2>
+  {% for e in collections.articles | limit(8) %}
+    <article class="card slim">
+      <a href="{{ e.url }}">{{ e.data.title }}</a>
+      <span class="posted">posted {{ e.date | pubDay }}</span>
+    </article>
+  {% endfor %}
+</section>

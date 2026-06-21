@@ -1,0 +1,16 @@
+{
+  "name": "redmond-events",
+  "version": "1.0.0",
+  "description": "A hyper-local, AI-written newsletter of events near downtown Redmond, WA",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "test": "eleventy --dryrun"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "luxon": "^3.5.0"
+  }
+}

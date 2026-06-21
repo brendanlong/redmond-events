@@ -1,0 +1,30 @@
+---
+permalink: /feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>{{ site.title }}</title>
+    <link>{{ site.origin }}{{ '/' | url }}</link>
+    <description>{{ site.tagline }}</description>
+    <language>en-us</language>
+    <lastBuildDate>{{ site.buildTime | rfc822 }}</lastBuildDate>
+    {%- for e in collections.articles | limit(40) %}
+    <item>
+      <title>{{ e.data.title }}</title>
+      <link>{{ site.origin }}{{ e.url | url }}</link>
+      <guid isPermaLink="true">{{ site.origin }}{{ e.url | url }}</guid>
+      <pubDate>{{ e.date | rfc822 }}</pubDate>
+      {%- for t in e.data.tags %}
+      <category>{{ t }}</category>
+      {%- endfor %}
+      <description><![CDATA[
+        <p><strong>{{ e.data.start | readable }}</strong><br>{{ e.data.venue }}{% if e.data.address %} — {{ e.data.address }}{% endif %}</p>
+        {{ e.templateContent | safe }}
+        {% if e.data.url %}<p><a href="{{ e.data.url }}">Official event page</a></p>{% endif %}
+      ]]></description>
+    </item>
+    {%- endfor %}
+  </channel>
+</rss>
