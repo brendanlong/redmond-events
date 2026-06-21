@@ -23,6 +23,11 @@ RSS feed and a subscribable calendar.
   [`AGENT.md`](AGENT.md): read Lion Reader → filter for relevance and distance →
   write one article per event → build → push. GitHub Actions deploys to Pages.
 
+## Running it
+
+[`SETUP.md`](SETUP.md) is the one-time checklist for wiring up the Lion Reader
+account and the daily routine that keeps the site updated.
+
 ## Editorial config
 
 Interests and how far readers will travel live in
