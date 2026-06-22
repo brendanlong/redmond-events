@@ -9,7 +9,7 @@ address: "Snoqualmie Pass, WA 98068"
 url: "https://www.joingearhouse.com/"
 source: "ics:2a4124c0-080f-4a47-9b64-8e3c8baec4a8"
 region: other
-cost: "Via Gearhouse — RSVP / membership (check the calendar)"
+cost: "Included with Gearhouse membership — RSVP on the calendar"
 tags: [hiking, outdoors, mountains, social]
 ---
 
@@ -25,8 +25,8 @@ for us than it is for the folks coming from Gearhouse's Capitol Hill home base. 
 with an organized group also takes the friction out of it: you get company, a known
 route, and no solo-trailhead logistics.
 
-A note on access: Gearhouse is a membership club (its cafe is open to all, but
-organized trips like this generally run for members or by RSVP), so check the
-[Gearhouse calendar](https://www.joingearhouse.com/) for sign-up details, the meet
-time, carpool plans, and what to bring. Pack the usual: sturdy shoes, layers, water,
-and the [Ten Essentials](https://www.nwac.us/) for a Cascades day hike.
+Best part: it's a Saturday and it's a straight I-90 run, so none of the usual
+into-Seattle weekday hassle applies. RSVP on the
+[Gearhouse calendar](https://www.joingearhouse.com/) for the meet time and carpool
+plan, and pack the usual: sturdy shoes, layers, water, and the
+[Ten Essentials](https://www.nwac.us/) for a Cascades day hike.

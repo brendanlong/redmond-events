@@ -2,8 +2,11 @@
 layout: event.njk
 title: "Japan Fair 2026"
 date: 2026-06-21
-start: 2026-06-27T10:00:00-07:00
-end: 2026-06-27T18:00:00-07:00
+dates:
+  - start: 2026-06-27T10:00:00-07:00
+    end: 2026-06-27T18:00:00-07:00
+  - start: 2026-06-28T10:00:00-07:00
+    end: 2026-06-28T17:00:00-07:00
 venue: "Meydenbauer Center"
 address: "11100 NE 6th St, Bellevue, WA 98004"
 url: "https://www.japanfairus.org/"

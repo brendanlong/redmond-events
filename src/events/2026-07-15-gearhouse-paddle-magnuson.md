@@ -9,7 +9,7 @@ address: "7400 Sand Point Way NE, Seattle, WA 98115"
 url: "https://www.joingearhouse.com/"
 source: "ics:90d030b9-708d-4cc3-9ad9-5613b4e3f0e2"
 region: seattle
-cost: "Via Gearhouse — RSVP / membership (check the calendar)"
+cost: "Included with Gearhouse membership — RSVP on the calendar"
 tags: [paddleboarding, outdoors, water, social]
 ---
 
@@ -19,13 +19,12 @@ paddle. Mid-July evenings on the lake are about as good as Seattle summer gets �
 warm, calm water and long golden light — and Magnuson's gentle shoreline is a
 forgiving place to get out on a board.
 
-From downtown Redmond it's about a **25-minute drive west across SR-520** to the
-Sand Point side of the lake, so this is a genuinely doable weeknight outing rather
-than a whole-day expedition. Going with the club means there are people to paddle
-with and, typically, gear available — handy if you don't own a board.
+The honest catch is that it's a *weeknight trip into Seattle* — about a **25-minute
+drive west across SR-520** to the Sand Point side of the lake, and you know how that
+can go on a weekday evening. But a calm, golden-hour paddle is about the best reason
+there is to make the crossing, and going with the club means there are people to
+paddle with and, typically, gear on hand if you don't haul your own board over.
 
-As with Gearhouse's other trips, this runs through the club (cafe open to all,
-outings generally for members or by RSVP), so check the
-[Gearhouse calendar](https://www.joingearhouse.com/) for the meet spot within the
-park, whether boards/SUPs are provided or BYO, and the exact RSVP details. Bring a
-swimsuit, a towel, and a dry bag for your phone.
+RSVP on the [Gearhouse calendar](https://www.joingearhouse.com/) for the meet spot
+within the park and whether boards/SUPs are provided or BYO. Bring a swimsuit, a
+towel, and a dry bag for your phone.

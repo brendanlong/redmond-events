@@ -29,9 +29,6 @@ The format is the Chateau classic: bring a blanket and a low chair, get there ea
 and picnic on the lawn with wine before the music starts. It's a relaxed,
 grown-up-friendly night out rather than a mosh pit.
 
-And if Thursday doesn't fit, the rest of the **summer concert series** is the real
-draw — 21 shows running into the fall, almost all of them this same 15 minutes away.
-A few coming up that might land for you: **Dierks Bentley** (Jun 27), **Ziggy
-Marley** (Jul 1), **The Fray** (Jul 21), **Fitz & the Tantrums** (Jul 26), and
-**Sarah McLachlan** (Aug 8–9). Worth scanning the [full lineup](https://www.ste-michelle.com/concerts/summer-concerts)
-and grabbing a lawn ticket for whichever night fits.
+This is one of 21 shows in Chateau's summer series, so it's worth keeping an eye on
+the [full lineup](https://www.ste-michelle.com/concerts/summer-concerts) — we'll
+flag the other standouts as they come up.
