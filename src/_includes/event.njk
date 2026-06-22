@@ -6,9 +6,18 @@ layout: base.njk
   <h2>{{ title }}</h2>
 
   <ul class="facts">
+    {% set occ = { dates: dates, start: start, end: end } | occurrences %}
     <li class="when">
       <strong>When:</strong>
-      {{ start | readable }}{% if end %} &ndash; {{ end | readable }}{% endif %}
+      {% if occ.length > 1 %}
+        <ul class="dates">
+          {% for o in occ %}
+            <li>{{ o.start | readable }}{% if o.end %} &ndash; {{ o.end | readable }}{% endif %}</li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        {{ occ[0].start | readable }}{% if occ[0].end %} &ndash; {{ occ[0].end | readable }}{% endif %}
+      {% endif %}
     </li>
     <li class="where">
       <strong>Where:</strong>

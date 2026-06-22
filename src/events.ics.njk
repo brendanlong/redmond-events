@@ -11,12 +11,14 @@ X-WR-CALNAME:Near Redmond Events
 X-WR-TIMEZONE:America/Los_Angeles
 {%- for e in collections.events %}
 {%- set abs = site.origin + (e.url | url) %}
+{%- set occ = e.data | occurrences %}
+{%- for o in occ %}
 BEGIN:VEVENT
-UID:{{ abs }}
+UID:{{ abs }}{% if occ.length > 1 %}#{{ loop.index }}{% endif %}
 DTSTAMP:{{ site.buildTime | icsDate }}
-DTSTART:{{ e.data.start | icsDate }}
-{%- if e.data.end %}
-DTEND:{{ e.data.end | icsDate }}
+DTSTART:{{ o.start | icsDate }}
+{%- if o.end %}
+DTEND:{{ o.end | icsDate }}
 {%- endif %}
 SUMMARY:{{ e.data.title | icsText | safe }}
 {%- if e.data.address or e.data.venue %}
@@ -25,5 +27,6 @@ LOCATION:{{ (e.data.venue ~ (", " if e.data.venue and e.data.address) ~ e.data.a
 URL:{{ abs }}
 DESCRIPTION:{{ ("More: " ~ abs) | icsText | safe }}
 END:VEVENT
+{%- endfor %}
 {%- endfor %}
 END:VCALENDAR
