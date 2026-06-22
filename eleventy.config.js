@@ -3,14 +3,40 @@ import { DateTime } from "luxon";
 const ZONE = "America/Los_Angeles";
 const toDT = (d) => DateTime.fromJSDate(new Date(d));
 
+// Normalize an event's timing into a list of { start, end } occurrences. Supports
+// a single event (top-level start/end) and multi-day events (a `dates:` list).
+const occurrencesOf = (data = {}) => {
+  if (Array.isArray(data.dates) && data.dates.length) {
+    return data.dates.map((o) => ({ start: o.start, end: o.end || null }));
+  }
+  if (data.start) return [{ start: data.start, end: data.end || null }];
+  return [];
+};
+const firstStartOf = (data) => {
+  const occ = occurrencesOf(data);
+  return occ.length
+    ? occ.reduce((m, o) => (new Date(o.start) < new Date(m) ? o.start : m), occ[0].start)
+    : null;
+};
+const lastEndOf = (data) => {
+  const occ = occurrencesOf(data);
+  if (!occ.length) return null;
+  return occ.reduce((m, o) => {
+    const e = o.end || o.start;
+    return new Date(e) > new Date(m) ? e : m;
+  }, occ[0].end || occ[0].start);
+};
+
 export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
 
-  // Every event article, sorted by start time (used for the calendar + listings).
+  // Every event article, sorted by first start time (used for the calendar +
+  // listings). `firstStart` is computed (see events.11tydata.js) so multi-day
+  // events sort by their opening day.
   eleventyConfig.addCollection("events", (api) =>
     api
       .getFilteredByGlob("./src/events/*.md")
-      .sort((a, b) => new Date(a.data.start) - new Date(b.data.start))
+      .sort((a, b) => new Date(firstStartOf(a.data)) - new Date(firstStartOf(b.data)))
   );
 
   // Same files, sorted by publish date (used for the RSS feed + "recently posted").
@@ -38,10 +64,12 @@ export default function (eleventyConfig) {
 
   // --- helpers ---
   eleventyConfig.addFilter("limit", (arr, n) => (arr || []).slice(0, n));
+  eleventyConfig.addFilter("occurrences", occurrencesOf);
+  eleventyConfig.addFilter("firstStart", firstStartOf);
   eleventyConfig.addFilter("upcoming", (events) => {
     const now = Date.now();
     return (events || []).filter(
-      (e) => new Date(e.data.end || e.data.start).getTime() >= now
+      (e) => new Date(lastEndOf(e.data) || firstStartOf(e.data)).getTime() >= now
     );
   });
   // RFC 5545 text escaping for .ics fields.

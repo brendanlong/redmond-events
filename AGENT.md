@@ -105,6 +105,14 @@ title: "Event name"
 date: 2026-06-21            # the day you publish (drives feed order)
 start: 2026-06-27T19:00:00-07:00   # ISO 8601 with -07:00 (PDT) / -08:00 (PST)
 end: 2026-06-27T22:00:00-07:00     # optional
+# For a multi-day / multi-session event (a festival that's Sat 10–6 and Sun 10–5),
+# OMIT start/end above and use a `dates:` list instead — one entry per day/session.
+# Each becomes its own calendar (.ics) block, and the page lists them all:
+# dates:
+#   - start: 2026-06-27T10:00:00-07:00
+#     end: 2026-06-27T18:00:00-07:00
+#   - start: 2026-06-28T10:00:00-07:00
+#     end: 2026-06-28T17:00:00-07:00
 venue: "Venue name"
 address: "Street, City, WA ZIP"    # a REAL street address — it auto-links to Google Maps
 url: "https://official-event-page"
@@ -122,10 +130,28 @@ Field notes:
   Google Maps link work. If you genuinely can't find one, use the most specific
   place name you can and say so in the prose.
 - **`region`** drives the distance bar and a small label; set it honestly.
+- **`start`/`end` vs `dates`** — use a single `start` (+ optional `end`) for a normal
+  event; use a `dates:` list (above) for anything multi-day or multi-session so each
+  day is its own calendar block instead of one event running overnight. The filename
+  uses the **first** day's date.
 - **`source`** ties the article back to where it came from, and is the dedup key:
   `lion-reader:<entryId>` for Lion Reader, `ics:<uid>` for a calendar event (the
   same key you put in `state/seen.json`), or `web:<page-url>` for a scraped page.
 - Times are America/Los_Angeles. Use `-07:00` during PDT and `-08:00` during PST.
+
+## Reader-specific notes
+
+These are tuning facts about *these* readers — apply them alongside `profile.yaml`:
+
+- **Concert series → one article per show.** For a venue's summer series (e.g.
+  Chateau Ste. Michelle), don't write a single series-overview post. Write one
+  article per show whose artist is likely to interest readers, and link each to the
+  venue's full lineup. Skip the shows that aren't a fit rather than listing them all.
+- **Gearhouse: readers are members.** Don't hedge on access — just point to the
+  Gearhouse calendar to RSVP (no "check membership" caveat). But **getting into
+  Seattle on weekdays is a real hassle** for them: a weeknight Gearhouse event *in
+  the city* needs to be notably worth it, and name that friction honestly. Weekend
+  trips and outdoor outings reached via I-90 (not into the city) are easy yeses.
 
 ## Guardrails
 
