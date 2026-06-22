@@ -3,6 +3,7 @@ layout: event.njk
 title: "Group Hike: Kendall Katwalk (via Gearhouse)"
 date: 2026-06-22
 start: 2026-07-19T08:00:00-07:00
+end: 2026-07-19T17:00:00-07:00
 venue: "PCT North Trailhead, Snoqualmie Pass"
 address: "PCT Trailhead, Snoqualmie Pass, WA 98068"
 url: "https://www.joingearhouse.com/"

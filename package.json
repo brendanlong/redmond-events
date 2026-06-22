@@ -7,7 +7,8 @@
   "scripts": {
     "build": "eleventy",
     "serve": "eleventy --serve",
-    "test": "eleventy --dryrun",
+    "test": "node scripts/lint-events.mjs && eleventy --dryrun",
+    "lint:events": "node scripts/lint-events.mjs",
     "fetch:ics": "node scripts/fetch-ics.mjs",
     "lr": "node scripts/lion-reader.mjs"
   },

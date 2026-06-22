@@ -3,6 +3,7 @@ layout: event.njk
 title: "Lindsey Stirling at Chateau Ste. Michelle"
 date: 2026-06-21
 start: 2026-08-03T19:00:00-07:00
+end: 2026-08-03T22:00:00-07:00
 venue: "Chateau Ste. Michelle"
 address: "14111 NE 145th St, Woodinville, WA 98072"
 url: "https://www.ste-michelle.com/concerts/summer-concerts"
