@@ -20,6 +20,19 @@ filter, dedup, and write with one shared set of rules.
    - **Lion Reader** (RSS feeds + email newsletters): `list_entries({ unreadOnly: true })`
      (no `type` filter). Page through the cursor until you've seen everything unread;
      use `get_entry` for full content when a summary isn't enough.
+     - **If the Lion Reader MCP isn't attached to this session** (it usually isn't),
+       use the bundled CLI fallback instead — it speaks to the same hosted MCP over
+       plain HTTP. Set the token once (`export LION_READER_TOKEN=…`; never commit it),
+       then call tools by name with JSON args:
+       ```bash
+       npm run lr -- count_entries  '{"unreadOnly":true}'
+       npm run lr -- list_entries   '{"unreadOnly":true,"limit":50}'   # page via nextCursor
+       npm run lr -- get_entry      '{"entryId":"<id>"}'
+       npm run lr -- mark_entries_read '{"entryIds":["<id>"],"read":true}'
+       npm run lr -- tools          # list every available tool
+       ```
+       Tool names and arguments are identical to the MCP tools, so the rest of this
+       routine reads the same either way. See [`scripts/lion-reader.mjs`](scripts/lion-reader.mjs).
    - **Calendars (`.ics`)**: run `npm run fetch:ics`. It fetches every `type: ics`
      source in `src/_data/sources.yaml`, expands recurring events, and prints
      normalized JSON (title, start/end in Pacific time, location, url, `uid`, etc.).
@@ -62,8 +75,12 @@ filter, dedup, and write with one shared set of rules.
      read/unread flag for.
 
 7. **Build and verify.** Run `npm ci` (first run) or `npm install`, then
-   `npm run build`. The build **must succeed** — it's the only gate before publish.
-   If it fails, fix it; do not push a broken build.
+   `npm run lint:events` and `npm run build` (or `npm test`, which runs both). The
+   linter checks every event's time fields — that each has a `start` or a `dates:`
+   list (not both), real Pacific offsets (`-07:00` PDT / `-08:00` PST, correct for
+   the date), and an `end` after the `start`; it flags a missing `end` (zero-duration
+   calendar entry) as a warning. Both **must pass** — they're the gate before publish.
+   If either fails, fix it; do not push a broken build.
 
 8. **Publish.** Commit the new event files **and** the updated `state/seen.json`
    together, with a clear message (e.g. `Add 3 events for week of Jun 27`), and push

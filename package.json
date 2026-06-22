@@ -7,8 +7,10 @@
   "scripts": {
     "build": "eleventy",
     "serve": "eleventy --serve",
-    "test": "eleventy --dryrun",
-    "fetch:ics": "node scripts/fetch-ics.mjs"
+    "test": "node scripts/lint-events.mjs && eleventy --dryrun",
+    "lint:events": "node scripts/lint-events.mjs",
+    "fetch:ics": "node scripts/fetch-ics.mjs",
+    "lr": "node scripts/lion-reader.mjs"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
