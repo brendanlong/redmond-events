@@ -1,0 +1,40 @@
+---
+layout: event.njk
+title: "Wednesday Evening Trail Club: I-90 Edition (via Gearhouse)"
+date: 2026-06-22
+venue: "I-90 Corridor — meet at Gearhouse Coffee Shop"
+address: "800 E Thomas St, Seattle, WA 98102"
+url: "https://www.joingearhouse.com/"
+source: "ics:505dce42-6745-40c8-a85f-e41d01cd71da"
+region: eastside
+cost: "Included with Gearhouse membership — RSVP on the calendar"
+tags: [hiking, outdoors, social, recurring]
+dates:
+  - start: 2026-07-01T16:30:00-07:00
+    end: 2026-07-01T21:00:00-07:00
+  - start: 2026-07-08T16:30:00-07:00
+    end: 2026-07-08T21:00:00-07:00
+  - start: 2026-07-29T16:30:00-07:00
+    end: 2026-07-29T21:00:00-07:00
+  - start: 2026-08-05T16:30:00-07:00
+    end: 2026-08-05T21:00:00-07:00
+---
+
+Here's a low-commitment way to get a midweek hike in: Gearhouse runs a **Wednesday
+Evening Trail Club** along the **I-90 corridor** through the summer — short, scenic
+after-work outings built around "consistency over intensity." Think a couple of forested
+miles with just enough climb to shake off the workday, plus a friendly crew to do it
+with. It runs roughly **every other Wednesday**; upcoming dates are **July 1, July 8,
+July 29, and August 5**, meeting around 4:30–5pm.
+
+The trailheads sit in the **Issaquah/North Bend foothills off I-90**, which is the part
+that makes this an easy yes for us: that's a **20–35 minute drive east** from downtown
+Redmond, *away* from the city rather than into it — none of the weeknight Seattle-traffic
+headache. (The organizers gather at the Gearhouse coffee shop on Capitol Hill first, but
+if you're coming from the Eastside it's often simpler to meet the group at the trailhead —
+check the carpool notes when you RSVP.)
+
+Because the destination changes each week, RSVP on the
+[Gearhouse calendar](https://www.joingearhouse.com/) for that evening's specific trail,
+meet spot, and carpool plan. Bring trail shoes, water, a layer for when the sun drops
+behind the ridgeline, and a headlamp if it's a later start.
