@@ -8,7 +8,8 @@
     "build": "eleventy",
     "serve": "eleventy --serve",
     "test": "eleventy --dryrun",
-    "fetch:ics": "node scripts/fetch-ics.mjs"
+    "fetch:ics": "node scripts/fetch-ics.mjs",
+    "lr": "node scripts/lion-reader.mjs"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",

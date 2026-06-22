@@ -64,6 +64,13 @@ deploy workflow automatically.
 **MCP servers to attach:** the **Lion Reader** MCP, authenticated with the agent
 account's API key.
 
+> **No MCP? Use the bundled CLI fallback.** If you can't attach the Lion Reader MCP
+> to the runner (common for cloud/web sessions), set the same API token in the
+> environment as `LION_READER_TOKEN` and use [`scripts/lion-reader.mjs`](scripts/lion-reader.mjs)
+> (`npm run lr -- <tool> '<json>'`) instead — it talks to the same hosted MCP over
+> plain HTTP with identical tool names. AGENT.md's read/cursor loop documents the
+> exact calls. The token still lives only in the environment, never in the repo.
+
 **Tools/permissions the routine needs:**
 - Lion Reader MCP (read + `mark_entries_read`)
 - Shell for `npm ci` / `npm run build`
