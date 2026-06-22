@@ -75,8 +75,12 @@ filter, dedup, and write with one shared set of rules.
      read/unread flag for.
 
 7. **Build and verify.** Run `npm ci` (first run) or `npm install`, then
-   `npm run build`. The build **must succeed** — it's the only gate before publish.
-   If it fails, fix it; do not push a broken build.
+   `npm run lint:events` and `npm run build` (or `npm test`, which runs both). The
+   linter checks every event's time fields — that each has a `start` or a `dates:`
+   list (not both), real Pacific offsets (`-07:00` PDT / `-08:00` PST, correct for
+   the date), and an `end` after the `start`; it flags a missing `end` (zero-duration
+   calendar entry) as a warning. Both **must pass** — they're the gate before publish.
+   If either fails, fix it; do not push a broken build.
 
 8. **Publish.** Commit the new event files **and** the updated `state/seen.json`
    together, with a clear message (e.g. `Add 3 events for week of Jun 27`), and push
