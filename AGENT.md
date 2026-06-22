@@ -36,6 +36,10 @@ filter, dedup, and write with one shared set of rules.
    - **Calendars (`.ics`)**: run `npm run fetch:ics`. It fetches every `type: ics`
      source in `src/_data/sources.yaml`, expands recurring events, and prints
      normalized JSON (title, start/end in Pacific time, location, url, `uid`, etc.).
+     **It already filters out anything in `state/seen.json`** (by `ics:<uid>`) and
+     prints a `N new, M already seen` line to stderr — so the JSON you get is just
+     the calendar entries you haven't judged yet. (Pass `--all` to see everything,
+     seen or not, if you ever need to re-check a past entry.)
    - **Web pages**: for each `type: web` source in `sources.yaml`, fetch the page and
      read it for events. (If a page is too messy to scrape reliably, note it — the
      fix is usually to add a feed for it in Lion Reader instead.)
@@ -45,9 +49,11 @@ filter, dedup, and write with one shared set of rules.
 
 3. **Skip what you've already handled.**
    - Lion Reader: unread/read is your cursor (you'll mark read in step 6).
-   - Calendars/web: check `state/seen.json`. Skip any source key already listed —
-     that's how you avoid re-judging the same calendar entries every morning. Keys
-     are `ics:<uid>` and `web:<page-url>`.
+   - Calendars/web: `state/seen.json` is the ledger. `npm run fetch:ics` already
+     applies it for calendars, so its JSON is pre-filtered to unseen events; for
+     **web** sources you still check `seen.json` yourself (`web:<page-url>` keys),
+     since those pages are fetched directly. Skipping seen keys is how you avoid
+     re-judging the same entries every morning.
    - Either way, also check `src/events/` for a file already covering the same event
      (sources overlap); never publish two articles for one event.
 

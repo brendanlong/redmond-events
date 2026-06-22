@@ -7,12 +7,18 @@
 //   node scripts/fetch-ics.mjs                 # all type:ics entries in src/_data/sources.yaml
 //   node scripts/fetch-ics.mjs <url> [<url>…]  # ad-hoc calendar URLs
 //   node scripts/fetch-ics.mjs --days 90       # change the look-ahead horizon (default 45)
+//   node scripts/fetch-ics.mjs --all           # include events already in state/seen.json
 //
 // Output: JSON array of { source, sourceUrl, region, tags, uid, recurring,
 // allDay, title, start, end, location, url, description }. Times are ISO 8601 in
 // America/Los_Angeles (date-only for all-day events). `uid` is the dedup key —
 // for recurring events every occurrence shares one uid, so write a single article
 // describing the series (see AGENT.md).
+//
+// By default, events whose `ics:<uid>` key already appears in state/seen.json are
+// filtered out, so each run only surfaces calendar entries you haven't judged yet.
+// A trailing summary line goes to stderr (e.g. "12 new, 47 already seen"). Pass
+// --all to skip this filter and emit every event in the horizon.
 
 import ICAL from "ical.js";
 import { DateTime } from "luxon";
@@ -25,10 +31,26 @@ const MAX_OCCURRENCES = 200; // guard against unbounded RRULEs
 // --- args ---
 const argv = process.argv.slice(2);
 let days = 45;
+let includeSeen = false;
 const urlArgs = [];
 for (let i = 0; i < argv.length; i++) {
   if (argv[i] === "--days") days = Number(argv[++i]);
+  else if (argv[i] === "--all") includeSeen = true;
   else urlArgs.push(argv[i]);
+}
+
+// --- seen ledger: skip ics:<uid> keys already judged (unless --all) ---
+let seen = new Set();
+if (!includeSeen) {
+  try {
+    const raw = await readFile(
+      new URL("../state/seen.json", import.meta.url),
+      "utf8"
+    );
+    seen = new Set(Object.keys(JSON.parse(raw).seen || {}));
+  } catch (e) {
+    process.stderr.write(`WARN: could not read state/seen.json: ${e.message}\n`);
+  }
 }
 
 // --- source list: explicit URLs, or all type:ics entries from sources.yaml ---
@@ -147,4 +169,18 @@ for (const src of sources) {
 }
 
 out.sort((a, b) => new Date(a.start) - new Date(b.start));
-process.stdout.write(JSON.stringify(out, null, 2) + "\n");
+
+// Drop events already recorded in the seen ledger (keyed by ics:<uid>).
+let skipped = 0;
+const fresh = includeSeen
+  ? out
+  : out.filter((e) => {
+      const isSeen = e.uid && seen.has(`ics:${e.uid}`);
+      if (isSeen) skipped++;
+      return !isSeen;
+    });
+
+if (!includeSeen) {
+  process.stderr.write(`${fresh.length} new, ${skipped} already seen (pass --all to include seen)\n`);
+}
+process.stdout.write(JSON.stringify(fresh, null, 2) + "\n");
