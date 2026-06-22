@@ -1,0 +1,4 @@
+{
+  "_comment": "Processing ledger for non-Lion-Reader sources (.ics + web). Lion Reader uses read/unread as its cursor; this is the equivalent for direct-fetch sources. Keys are source keys ('ics:<uid>' or 'web:<url>'); values are the ISO date first judged. The agent skips keys already here so it doesn't re-evaluate the same calendar entries daily. See AGENT.md.",
+  "seen": {}
+}

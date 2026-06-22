@@ -1,0 +1,33 @@
+# Direct-fetch event sources — calendars and web pages the agent pulls itself.
+#
+# This is SEPARATE from Lion Reader. RSS feeds and email newsletters live in the
+# Lion Reader account (read via the MCP). This file is only for sources that
+# aren't in Lion Reader: public .ics calendars and scrape-only web pages.
+#
+# Each entry:
+#   - name:   human label (used as the source/provenance name)
+#     type:   ics | web
+#     url:    the calendar (.ics) or page URL
+#     region: walk | eastside | seattle | other   (optional hint; agent still judges)
+#     tags:   default tags to consider          (optional)
+#
+# `.ics` sources are parsed by `npm run fetch:ics` (expands recurring events).
+# `web` sources are fetched and read by the agent directly (see AGENT.md).
+
+sources: []
+  # --- examples (uncomment and edit) ---
+  # - name: "City of Redmond — Events Calendar"
+  #   type: ics
+  #   url: "https://www.redmond.gov/calendar.ics"
+  #   region: walk
+  #   tags: [civic]
+  #
+  # - name: "Marymoor Park events"
+  #   type: ics
+  #   url: "https://example.com/marymoor.ics"
+  #   region: walk
+  #
+  # - name: "Some Venue — What's On"
+  #   type: web
+  #   url: "https://example-venue.com/events"
+  #   region: eastside

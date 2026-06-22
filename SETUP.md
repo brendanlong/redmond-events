@@ -29,6 +29,20 @@ own unread counts.
 3. *(Optional, when ready)* Add the **subscribe/unsubscribe MCP tools** so the agent
    can manage its own feeds. Until then, feed management is manual here.
 
+### Calendars and web pages (not in Lion Reader)
+
+Some sources are public `.ics` calendars or plain web pages with no feed. Those go
+in [`src/_data/sources.yaml`](src/_data/sources.yaml) in this repo, not Lion Reader:
+
+- **`type: ics`** — a calendar URL. `npm run fetch:ics` fetches it, expands recurring
+  events (e.g. weekly trivia), and hands the agent clean structured events. This is
+  the *best* kind of source — no scraping, exact times/locations.
+- **`type: web`** — a listings page the agent fetches and reads directly.
+
+Add entries, commit, and the next run picks them up. The agent tracks what it has
+already judged from these sources in `state/seen.json` (its "read" cursor for the
+non–Lion-Reader lanes).
+
 What the agent does with it each run: `list_entries({ unreadOnly: true })` →
 `get_entry` for detail → `mark_entries_read` once processed. That's the whole
 read/cursor loop (see `AGENT.md`).

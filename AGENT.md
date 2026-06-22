@@ -13,16 +13,32 @@ source of truth for taste and geography. This file is the source of truth for
 
 ## The daily routine
 
-1. **Pull what's new.** Call `list_entries({ unreadOnly: true })` (no `type`
-   filter — web feeds and email newsletters are both relevant). Page through with
-   the cursor until you've seen everything unread. Use `get_entry` to read full
-   content when a summary isn't enough to extract event details.
+Events come in through **three lanes**. Gather candidates from all of them, then
+filter, dedup, and write with one shared set of rules.
 
-2. **Find the events.** Scan each entry for actual events — something with a date,
-   a place, and a reason to show up. A single newsletter often mentions several
-   events; pull out **each one separately**.
+1. **Gather candidates.**
+   - **Lion Reader** (RSS feeds + email newsletters): `list_entries({ unreadOnly: true })`
+     (no `type` filter). Page through the cursor until you've seen everything unread;
+     use `get_entry` for full content when a summary isn't enough.
+   - **Calendars (`.ics`)**: run `npm run fetch:ics`. It fetches every `type: ics`
+     source in `src/_data/sources.yaml`, expands recurring events, and prints
+     normalized JSON (title, start/end in Pacific time, location, url, `uid`, etc.).
+   - **Web pages**: for each `type: web` source in `sources.yaml`, fetch the page and
+     read it for events. (If a page is too messy to scrape reliably, note it — the
+     fix is usually to add a feed for it in Lion Reader instead.)
 
-3. **Filter for relevance** using `profile.yaml`:
+2. **Find the events.** A single newsletter or page often mentions several events;
+   pull out **each one separately**. Calendar JSON is already one entry per event.
+
+3. **Skip what you've already handled.**
+   - Lion Reader: unread/read is your cursor (you'll mark read in step 6).
+   - Calendars/web: check `state/seen.json`. Skip any source key already listed —
+     that's how you avoid re-judging the same calendar entries every morning. Keys
+     are `ics:<uid>` and `web:<page-url>`.
+   - Either way, also check `src/events/` for a file already covering the same event
+     (sources overlap); never publish two articles for one event.
+
+4. **Filter for relevance** using `profile.yaml`:
    - Match against reader interests, but lean toward novel/fun even outside the
      listed interests.
    - Apply the **distance bar**: anything in **walking distance** clears the bar on
@@ -32,25 +48,29 @@ source of truth for taste and geography. This file is the source of truth for
      annoying). Farther than that, only exceptional events.
    - Drop anything already past, or starting before this run would publish.
 
-4. **Dedup.** Before writing, check `src/events/` for an existing file covering the
-   same event (same event on the same date — sources overlap a lot). If it exists,
-   skip it, or improve the existing file if you have better info. Never publish two
-   articles for one event.
+5. **Write one article per event** (see rules below) into `src/events/`. For a
+   **recurring** calendar event (`recurring: true` — every occurrence shares one
+   `uid`), write **one** article describing the series and its cadence
+   (e.g. "every Tuesday at 7pm"), not one per occurrence.
 
-5. **Write one article per event** (see rules below) into `src/events/`.
-
-6. **Mark the source entries read** with `mark_entries_read` once you've fully
-   processed them — read/unread is your "what have I already looked at" cursor, so
-   keep it accurate. (Marking read is the only write you make to Lion Reader.)
+6. **Record what you processed** so tomorrow's run doesn't repeat today's:
+   - Lion Reader: `mark_entries_read` on every entry you fully processed — including
+     ones you decided to skip. (This is the only write you make to Lion Reader.)
+   - Calendars/web: add a key to `state/seen.json` (`seen` map) for every event you
+     judged — **published or rejected** — with the run's date as the value. Use
+     `ics:<uid>` / `web:<page-url>` keys. This is the ledger that lane lacks a
+     read/unread flag for.
 
 7. **Build and verify.** Run `npm ci` (first run) or `npm install`, then
    `npm run build`. The build **must succeed** — it's the only gate before publish.
    If it fails, fix it; do not push a broken build.
 
-8. **Publish.** Commit with a clear message (e.g. `Add 3 events for week of Jun 27`)
-   and push to `main`. GitHub Actions builds and deploys to Pages. If there were no
-   new events worth publishing, make no commit — quiet days are fine, never invent
-   filler.
+8. **Publish.** Commit the new event files **and** the updated `state/seen.json`
+   together, with a clear message (e.g. `Add 3 events for week of Jun 27`), and push
+   to `main`. GitHub Actions builds and deploys to Pages. If there were no new events
+   worth publishing, make no commit — quiet days are fine, never invent filler.
+   (Still commit `state/seen.json` on its own if you judged and rejected calendar
+   events, so you don't re-judge them tomorrow.)
 
 ## How to write an event article
 
@@ -88,7 +108,7 @@ end: 2026-06-27T22:00:00-07:00     # optional
 venue: "Venue name"
 address: "Street, City, WA ZIP"    # a REAL street address — it auto-links to Google Maps
 url: "https://official-event-page"
-source: "lion-reader:<entryId>"    # provenance, for dedup
+source: "lion-reader:<entryId>"    # or "ics:<uid>" / "web:<page-url>" — provenance + dedup key
 region: walk               # walk | eastside | seattle | other
 cost: "Free" | "$25" | "..."
 tags: [music, outdoor]
@@ -102,8 +122,9 @@ Field notes:
   Google Maps link work. If you genuinely can't find one, use the most specific
   place name you can and say so in the prose.
 - **`region`** drives the distance bar and a small label; set it honestly.
-- **`source`** ties the article back to the Lion Reader entry so you (and future
-  runs) can dedup and trace where it came from.
+- **`source`** ties the article back to where it came from, and is the dedup key:
+  `lion-reader:<entryId>` for Lion Reader, `ics:<uid>` for a calendar event (the
+  same key you put in `state/seen.json`), or `web:<page-url>` for a scraped page.
 - Times are America/Los_Angeles. Use `-07:00` during PDT and `-08:00` during PST.
 
 ## Guardrails

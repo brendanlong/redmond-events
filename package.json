@@ -7,10 +7,13 @@
   "scripts": {
     "build": "eleventy",
     "serve": "eleventy --serve",
-    "test": "eleventy --dryrun"
+    "test": "eleventy --dryrun",
+    "fetch:ics": "node scripts/fetch-ics.mjs"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
-    "luxon": "^3.5.0"
+    "ical.js": "^2.1.0",
+    "luxon": "^3.5.0",
+    "yaml": "^2.6.0"
   }
 }

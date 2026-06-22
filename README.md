@@ -20,8 +20,13 @@ RSS feed and a subscribable calendar.
 - The build generates the website, the RSS feed (`/feed.xml`), and the calendar
   (`/events.ics`) from those files — one source of truth.
 - A daily [Claude](https://claude.com/claude-code) routine follows
-  [`AGENT.md`](AGENT.md): read Lion Reader → filter for relevance and distance →
-  write one article per event → build → push. GitHub Actions deploys to Pages.
+  [`AGENT.md`](AGENT.md): gather events from three lanes — Lion Reader (RSS + email
+  newsletters), public `.ics` calendars, and web pages — filter for relevance and
+  distance, write one article per event, build, and push. GitHub Actions deploys to
+  Pages.
+- `.ics` calendars are parsed by [`scripts/fetch-ics.mjs`](scripts/fetch-ics.mjs)
+  (`npm run fetch:ics`), which expands recurring events. Calendar/web sources are
+  configured in [`src/_data/sources.yaml`](src/_data/sources.yaml).
 
 ## Running it
 
