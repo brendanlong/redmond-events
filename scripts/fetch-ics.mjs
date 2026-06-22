@@ -60,7 +60,9 @@ const out = [];
 for (const src of sources) {
   let text;
   try {
-    const res = await fetch(src.url, { redirect: "follow" });
+    // webcal:// is just https:// for subscription URLs; fetch needs the http scheme.
+    const fetchUrl = src.url.replace(/^webcal:\/\//i, "https://");
+    const res = await fetch(fetchUrl, { redirect: "follow" });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     text = await res.text();
   } catch (e) {
