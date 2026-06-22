@@ -19,7 +19,7 @@ title: Upcoming events near downtown Redmond
   {% endif %}
   {% for e in up %}
     <article class="card">
-      <h3><a href="{{ e.url }}">{{ e.data.title }}</a></h3>
+      <h3><a href="{{ e.url | url }}">{{ e.data.title }}</a></h3>
       <p class="meta">
         <span class="when">{{ e.data | firstStart | readableDay }}</span>
         <span class="sep">·</span>
@@ -34,7 +34,7 @@ title: Upcoming events near downtown Redmond
   <h2>Recently posted</h2>
   {% for e in collections.articles | limit(8) %}
     <article class="card slim">
-      <a href="{{ e.url }}">{{ e.data.title }}</a>
+      <a href="{{ e.url | url }}">{{ e.data.title }}</a>
       <span class="posted">posted {{ e.date | pubDay }}</span>
     </article>
   {% endfor %}
