@@ -153,6 +153,29 @@ These are tuning facts about *these* readers — apply them alongside `profile.y
   the city* needs to be notably worth it, and name that friction honestly. Weekend
   trips and outdoor outings reached via I-90 (not into the city) are easy yeses.
 
+## Managing your own sources & getting unstuck
+
+You're not stuck with the sources you start with — curate them.
+
+- **You own `src/_data/sources.yaml`.** If you come across a good `.ics` calendar or
+  events page while working, **add it** (commit it with a note in the message). If a
+  source is dead, noisy, off-topic, or spamming you with junk you keep rejecting,
+  **remove it or comment it out** — and say why in the commit. Keep the signal high.
+- **Lion Reader feeds you can't manage yourself.** There's no subscribe/unsubscribe
+  MCP tool yet, so you can't add or drop Lion Reader RSS/newsletter subscriptions on
+  your own. If one is spamming you or is low-value, filter it aggressively for now
+  **and file an issue** so a human can fix the subscription.
+- **File an issue when you need help.** Open one at
+  <https://github.com/brendanlong/redmond-events/issues> (e.g. `gh issue create`)
+  whenever you're blocked, confused by a source, getting flooded, or want a source
+  added/removed that you can't change yourself. Be specific: what's wrong, which
+  source, and what you'd suggest. This is the right move instead of silently
+  publishing low-quality events or dropping things on the floor.
+  - **Known rough spot:** the **Redmond and Kirkland city event subscriptions** were
+    confusing to set up and may be noisy or incomplete. If they flood you with
+    irrelevant items, filter hard and file an issue rather than letting junk through;
+    they're tricky to adjust on the Lion Reader side.
+
 ## Guardrails
 
 - **Never commit credentials or secrets.** This repo is public. The Lion Reader

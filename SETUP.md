@@ -68,6 +68,8 @@ account's API key.
 - Lion Reader MCP (read + `mark_entries_read`)
 - Shell for `npm ci` / `npm run build`
 - `git commit` + `git push` to `main`
+- `gh issue create` (so it can flag noisy/broken sources or ask for help — see
+  AGENT.md "Managing your own sources & getting unstuck")
 
 **Routine prompt** (keep it thin — the real instructions live in `AGENT.md`):
 
