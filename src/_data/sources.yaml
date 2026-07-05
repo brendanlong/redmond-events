@@ -29,6 +29,35 @@ sources:
     type: web
     url: "https://www.events12.com/seattle/"
 
+  # Marymoor Live — the official summer concert series lineup at Marymoor Park.
+  # Genuinely walk-distance from downtown Redmond, so basically every show clears
+  # the distance bar; judge each on music fit per "concert series -> one article
+  # per show" in AGENT.md. Discovered 2026-07-05 while cross-checking the
+  # "Marymoor Live Concerts" teaser in the Experience Redmond newsletter.
+  - name: "Marymoor Live"
+    type: web
+    url: "https://www.marymoorlive.com/"
+    region: walk
+    tags: [music, outdoor]
+
+  # Redmond Town Center — the events page for downtown Redmond's own shopping/
+  # entertainment center (weekly Exotics car show, Redmond Arts Festival, etc).
+  # Walk distance for our readers. Added 2026-07-05.
+  - name: "Redmond Town Center"
+    type: web
+    url: "https://redmondtowncenter.com/events/"
+    region: walk
+
+  # Chateau Ste. Michelle summer concerts — already the source/url for several
+  # published articles (Metric, The Fray, Lindsey Stirling), just never formally
+  # listed here. Adding it so it shows up in the regular source rotation instead
+  # of only being found incidentally via events12.com links.
+  - name: "Chateau Ste. Michelle — Summer Concerts"
+    type: web
+    url: "https://www.ste-michelle.com/concerts/summer-concerts"
+    region: eastside
+    tags: [music, outdoor]
+
   # --- more sources (uncomment and edit) ---
   # - name: "City of Redmond — Events Calendar"
   #   type: ics
