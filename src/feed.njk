@@ -20,7 +20,7 @@ eleventyExcludeFromCollections: true
       <category>{{ t }}</category>
       {%- endfor %}
       <description><![CDATA[
-        <p><strong>{{ e.data.start | readable }}</strong><br>{{ e.data.venue }}{% if e.data.address %} — {{ e.data.address }}{% endif %}</p>
+        <p><strong>{{ e.data | firstStart | readable }}</strong><br>{{ e.data.venue }}{% if e.data.address %} — {{ e.data.address }}{% endif %}</p>
         {{ e.templateContent | safe }}
         {% if e.data.url %}<p><a href="{{ e.data.url }}">Official event page</a></p>{% endif %}
       ]]></description>

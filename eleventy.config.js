@@ -1,7 +1,18 @@
 import { DateTime } from "luxon";
 
 const ZONE = "America/Los_Angeles";
-const toDT = (d) => DateTime.fromJSDate(new Date(d));
+// Convert to a luxon DateTime, throwing on invalid input. Luxon otherwise renders
+// "Invalid DateTime" for a missing/bad value (e.g. a template reading `start` on a
+// `dates:`-only event), silently shipping that string to the page. Throwing turns
+// it into a build failure — `name` identifies which filter/value was at fault.
+const toDT = (d, name = "date") => {
+  const dt = DateTime.fromJSDate(new Date(d));
+  if (!dt.isValid)
+    throw new Error(
+      `${name} filter got an invalid date: ${JSON.stringify(d)} (${dt.invalidReason || "not a date"})`
+    );
+  return dt;
+};
 
 // Normalize an event's timing into a list of { start, end } occurrences. Supports
 // a single event (top-level start/end) and multi-day events (a `dates:` list).
@@ -48,18 +59,18 @@ export default function (eleventyConfig) {
 
   // --- date formatting ---
   eleventyConfig.addFilter("readable", (d) =>
-    toDT(d).setZone(ZONE).toFormat("EEEE, LLLL d, yyyy 'at' h:mm a")
+    toDT(d, "readable").setZone(ZONE).toFormat("EEEE, LLLL d, yyyy 'at' h:mm a")
   );
   eleventyConfig.addFilter("readableDay", (d) =>
-    toDT(d).setZone(ZONE).toFormat("EEEE, LLLL d")
+    toDT(d, "readableDay").setZone(ZONE).toFormat("EEEE, LLLL d")
   );
   // Publish dates are written date-only (midnight UTC); render them in UTC so they
   // don't slip to the previous day in Pacific time.
-  eleventyConfig.addFilter("pubDay", (d) => toDT(d).toUTC().toFormat("LLLL d, yyyy"));
-  eleventyConfig.addFilter("isoDate", (d) => toDT(d).toISO());
-  eleventyConfig.addFilter("rfc822", (d) => toDT(d).toRFC2822());
+  eleventyConfig.addFilter("pubDay", (d) => toDT(d, "pubDay").toUTC().toFormat("LLLL d, yyyy"));
+  eleventyConfig.addFilter("isoDate", (d) => toDT(d, "isoDate").toISO());
+  eleventyConfig.addFilter("rfc822", (d) => toDT(d, "rfc822").toRFC2822());
   eleventyConfig.addFilter("icsDate", (d) =>
-    toDT(d).toUTC().toFormat("yyyyLLdd'T'HHmmss'Z'")
+    toDT(d, "icsDate").toUTC().toFormat("yyyyLLdd'T'HHmmss'Z'")
   );
 
   // --- helpers ---
