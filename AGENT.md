@@ -175,6 +175,27 @@ These are tuning facts about *these* readers — apply them alongside `profile.y
   Seattle on weekdays is a real hassle** for them: a weeknight Gearhouse event *in
   the city* needs to be notably worth it, and name that friction honestly. Weekend
   trips and outdoor outings reached via I-90 (not into the city) are easy yeses.
+- **Gearhouse trailhead outings → list the meet-at-trail time, not the shuttle
+  time.** For Gearhouse hikes, climbs, and backpacking trips, the calendar's `start`
+  is when the group's **carpool/shuttle leaves the Capitol Hill shop** — but our
+  readers rarely take it, since that means driving *into* Seattle before driving back
+  out to the trail. They drive straight to the trailhead instead. So set the article's
+  `start` (and each `dates:` entry) to the **estimated time the group reaches the
+  trailhead** = shuttle departure **+ the "Time to TH" (drive time) in the event
+  description** — and adjust `end` to a trailhead-to-trailhead estimate (meet time +
+  the "Approx hike time" + a little buffer) rather than one that bakes in the drive
+  back to the city. If a recurring series doesn't state a "Time to TH" (e.g. the Exit
+  38 climb nights or the Wednesday trail club), estimate the drive from Capitol Hill to
+  the trailhead yourself and say the meet time is approximate. Then **name the Capitol
+  Hill shuttle/carpool departure time in the prose too** — it still matters for anyone
+  doing a longer drive or wanting to share a ride — and make clear the headline time is
+  the trailhead meet. Also set `venue`/`address` to the trailhead (or, for a series
+  whose destination changes weekly, describe the general area and drop the specific
+  Capitol Hill address) so the location matches the time. This applies whenever the
+  group stages from Capitol Hill and driving direct is realistic (destination day
+  hikes, Exit 38 climb nights, the Wednesday trail club, backpacking). It does **not**
+  apply where the shuttle is intrinsic to the event (e.g. the Snoqualmie River float's
+  put-in/take-out shuttle) or where the listed time is already the on-site meet.
 
 ## Managing your own sources & getting unstuck
 

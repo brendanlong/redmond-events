@@ -2,8 +2,8 @@
 layout: event.njk
 title: "Group Hike: Lower Lena Lake, Olympics (via Gearhouse)"
 date: 2026-06-22
-start: 2026-07-25T08:00:00-07:00
-end: 2026-07-25T19:00:00-07:00
+start: 2026-07-25T10:30:00-07:00
+end: 2026-07-25T15:30:00-07:00
 venue: "Lena Lake Trailhead, Olympic National Forest"
 address: "Lena Lake Trailhead, Hamma Hamma Road, Eldon, WA 98555"
 url: "https://www.joingearhouse.com/"
@@ -26,7 +26,13 @@ of the Sound). That's a full day's commitment, which is exactly why doing it wit
 club helps — a carpool makes the miles social instead of solitary, and you get a known
 route into a range a lot of Eastsiders rarely make time for.
 
-RSVP on the [Gearhouse calendar](https://www.joingearhouse.com/) for the meet time and
+The **time listed above is when to meet the group at the trailhead.** It's a long haul
+out — roughly 2.5 hours from Gearhouse's Capitol Hill shop, where the carpool gathers at
+**8 a.m.** — so plan on being at the Lena Lake trailhead around **10:30**. Given the
+distance, most Eastsiders will want to coordinate a carpool rather than drive the whole
+way solo, so check the ride-share plan when you RSVP.
+
+RSVP on the [Gearhouse calendar](https://www.joingearhouse.com/) to confirm the meet time and
 carpool plan. Pack a full day-hike kit: sturdy shoes, layers, water and food, and the
 [Ten Essentials](https://www.nwac.us/). If the weather's warm, bring a swimsuit and a
 towel — the lake is the reward.

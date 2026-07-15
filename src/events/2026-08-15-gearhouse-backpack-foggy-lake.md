@@ -2,7 +2,7 @@
 layout: event.njk
 title: "Backpacking Trip: Foggy Lake & Gothic Basin (via Gearhouse)"
 date: 2026-07-05
-start: 2026-08-15T07:00:00-07:00
+start: 2026-08-15T08:45:00-07:00
 end: 2026-08-16T16:30:00-07:00
 venue: "Gothic Basin Trailhead"
 address: "Gothic Basin Trailhead, Mountain Loop Hwy, Verlot, WA 98251"
@@ -16,5 +16,7 @@ tags: [hiking, outdoors, mountains, social]
 For the more ambitious outdoors crowd: **Gearhouse** is running an overnight **backpacking trip to Foggy Lake and Gothic Basin** the weekend of **August 15-16** — a genuinely challenging one at 9.6 miles round-trip and over 3,100 feet of elevation gain, ending at a glacially-carved basin dotted with tarns below Del Campo and Foggy Peaks. This is a step up from Gearhouse's usual day hikes: one night out, real gear, and one of the more dramatic alpine landscapes in the North Cascades as the reward.
 
 It's farther afield than most of what we cover — up the Mountain Loop Highway past Granite Falls, a solid two-hour drive from Redmond — but it's a weekend trip rather than a weeknight one, and the payoff (an actual night camped in an alpine basin) is the kind of thing worth planning around if overnight backpacking is your thing. There's a planning night on **July 28, 6:30-7:30 p.m.** at the Gearhouse coffee shop for anyone who wants trip details and gear advice beforehand.
+
+The **time listed above is when to meet the group at the Gothic Basin trailhead** — the carpool leaves Gearhouse's Capitol Hill shop early, at **7 a.m.**, and it's about a 1-hour-45 drive up the Mountain Loop Highway, so plan to meet at the trailhead around **8:45**. It's far enough that coordinating a carpool makes sense, so sort the ride plan when you RSVP.
 
 RSVP on the [Gearhouse calendar](https://www.joingearhouse.com/). Bring full overnight backpacking gear — this isn't a car-camping trip.
