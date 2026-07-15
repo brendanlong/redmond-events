@@ -2,8 +2,7 @@
 layout: event.njk
 title: "Wednesday Evening Trail Club: I-90 Edition (via Gearhouse)"
 date: 2026-06-22
-venue: "I-90 Corridor — meet at Gearhouse Coffee Shop"
-address: "800 E Thomas St, Seattle, WA 98102"
+venue: "I-90 Corridor foothills (Issaquah/North Bend) — trailhead varies weekly"
 url: "https://www.joingearhouse.com/"
 source: "ics:505dce42-6745-40c8-a85f-e41d01cd71da"
 region: eastside
