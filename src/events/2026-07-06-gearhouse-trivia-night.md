@@ -16,6 +16,10 @@ dates:
     end: 2026-07-20T20:00:00-07:00
   - start: 2026-08-03T18:30:00-07:00
     end: 2026-08-03T20:00:00-07:00
+  - start: 2026-08-17T18:30:00-07:00
+    end: 2026-08-17T20:00:00-07:00
+  - start: 2026-09-07T18:30:00-07:00
+    end: 2026-09-07T20:00:00-07:00
 ---
 
 For the trivia crowd: Gearhouse runs a **bi-weekly Trivia Night** at its Capitol Hill
@@ -31,6 +35,8 @@ cooperates, and Monday-evening traffic across the bridges doesn't always coopera
 this is one to plan around: worth the trip if you're after a low-key social night with a
 clever quiz and don't mind the commute back, less so if you're dragging after work. If a
 Monday lines up and you've got a carful, it's a fun, friendly way to spend an evening.
+The series keeps rolling every other Monday — new dates on the calendar so far run
+through **August 17 and September 7**.
 
 RSVP on the [Gearhouse calendar](https://www.joingearhouse.com/) so they can size the
 tables. Bring a team name and your most random knowledge.
