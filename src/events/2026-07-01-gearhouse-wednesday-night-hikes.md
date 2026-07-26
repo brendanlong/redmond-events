@@ -17,6 +17,10 @@ dates:
     end: 2026-07-29T21:00:00-07:00
   - start: 2026-08-05T17:15:00-07:00
     end: 2026-08-05T21:00:00-07:00
+  - start: 2026-08-26T17:15:00-07:00
+    end: 2026-08-26T21:00:00-07:00
+  - start: 2026-09-02T17:15:00-07:00
+    end: 2026-09-02T21:00:00-07:00
 ---
 
 Here's a low-commitment way to get a midweek hike in: Gearhouse runs a **Wednesday
@@ -24,7 +28,7 @@ Evening Trail Club** along the **I-90 corridor** through the summer — short, s
 after-work outings built around "consistency over intensity." Think a couple of forested
 miles with just enough climb to shake off the workday, plus a friendly crew to do it
 with. It runs roughly **every other Wednesday**; upcoming dates are **July 1, July 8,
-July 29, and August 5**.
+July 29, August 5, August 26, and September 2**.
 
 The trailheads sit in the **Issaquah/North Bend foothills off I-90**, which is the part
 that makes this an easy yes for us: that's a **20–35 minute drive east** from downtown
