@@ -13,6 +13,8 @@ cost: "Included with Gearhouse membership (tube/shuttle via Fall City Floating) 
 tags: [outdoors, water, social]
 ---
 
+**Update, Aug. 23: cancelled due to weather.** Gearhouse pulled the plug on today's float — check the [Gearhouse calendar](https://www.joingearhouse.com/) for any reschedule.
+
 For a lazy end-of-summer afternoon, Gearhouse is organizing a **Snoqualmie River float day** on **Sunday, August 23**, working with Fall City Floating for tubes and shuttle service. The idea is about as low-effort as outdoor recreation gets: gather at Gearhouse, shuttle out, and drift a few slow-moving hours down the Snoqualmie River back toward Fall City — no paddling required, just floating, splashing, and cooling off on what's typically one of the hottest stretches of the summer.
 
 Fall City is genuinely close by our standards — about a 20-minute drive from downtown Redmond via SR-202/I-90, well inside the easy-yes range for a weekend outing. It's a nice change of pace from Gearhouse's hikes and paddle sessions: zero elevation gain, zero cardio, just current and company.
