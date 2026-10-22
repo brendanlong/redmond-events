@@ -57,3 +57,9 @@ interests:
   - id: dinosaurs
     label: "Dinosaurs & natural history"
     note: "Exhibits, talks, anything paleontology-flavored."
+  - id: rationalist
+    label: "Rationalist, EA & AI-safety community events"
+    note: >
+      ACX/LessWrong meetups, Secular Solstice, EA and AI-safety talks and socials.
+      Eastside ones especially. Skip the Seattle Rationality weekly Monday meetup —
+      readers already know about it.

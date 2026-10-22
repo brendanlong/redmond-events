@@ -58,6 +58,35 @@ sources:
     region: eastside
     tags: [music, outdoor]
 
+  # Rationalist / EA / AI-safety community calendars. Requested 2026-10-22.
+  # Readers already know about the Seattle Rationality weekly Monday social and
+  # reading group, so don't write that up — only one-off events from these feeds
+  # (Secular Solstice, ACX Meetups Everywhere, special talks, parties).
+  - name: "Seattle Rationality (Meetup)"
+    type: ics
+    url: "https://www.meetup.com/seattle-rationality/events/ical/"
+    tags: [rationalist]
+
+  - name: "Seattle Effective Altruists (Meetup)"
+    type: ics
+    url: "https://www.meetup.com/Seattle-Effective-Altruists/events/ical/"
+    tags: [rationalist]
+
+  # LessWrong and EA Forum events within 25 miles of downtown Redmond. This is
+  # where ACX Meetups Everywhere, Secular Solstice, and EA Summit Seattle get
+  # posted. These are RSS feeds, so they could move to Lion Reader; they're here
+  # as web sources until someone subscribes there. The feeds also include
+  # worldwide "global" events (conferences in DC, Berlin, ...) — ignore those.
+  - name: "LessWrong — events near Redmond"
+    type: web
+    url: "https://www.lesswrong.com/feed.xml?view=nearbyEvents&lat=47.674&lng=-122.121&distance=25"
+    tags: [rationalist]
+
+  - name: "EA Forum — events near Redmond"
+    type: web
+    url: "https://forum.effectivealtruism.org/feed.xml?view=nearbyEvents&lat=47.674&lng=-122.121&distance=25"
+    tags: [rationalist]
+
   # --- more sources (uncomment and edit) ---
   # - name: "City of Redmond — Events Calendar"
   #   type: ics
