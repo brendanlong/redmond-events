@@ -25,11 +25,11 @@ filter, dedup, and write with one shared set of rules.
        plain HTTP. Set the token once (`export LION_READER_TOKEN=…`; never commit it),
        then call tools by name with JSON args:
        ```bash
-       npm run lr -- count_entries  '{"unreadOnly":true}'
+       npm run lr -- count_entries  '{}'                    # always an unread count
        npm run lr -- list_entries   '{"unreadOnly":true,"limit":50}'   # page via nextCursor
        npm run lr -- get_entry      '{"entryId":"<id>"}'
        npm run lr -- mark_entries_read '{"entryIds":["<id>"],"read":true}'
-       npm run lr -- tools          # list every available tool
+       npm run lr -- tools          # list every tool and its arguments (* = required)
        ```
        Tool names and arguments are identical to the MCP tools, so the rest of this
        routine reads the same either way. See [`scripts/lion-reader.mjs`](scripts/lion-reader.mjs).

@@ -100,6 +100,12 @@ if (data.error) {
 if (rpc.method === "tools/list") {
   for (const t of data.result?.tools ?? []) {
     console.log(`${t.name}\n  ${(t.description ?? "").split("\n")[0]}`);
+    const props = t.inputSchema?.properties ?? {};
+    const required = new Set(t.inputSchema?.required ?? []);
+    for (const [name, schema] of Object.entries(props)) {
+      const type = schema.type ?? (schema.enum ? `enum(${schema.enum.join("|")})` : "any");
+      console.log(`    ${name}${required.has(name) ? "*" : ""}: ${type}`);
+    }
   }
 } else {
   const content = data.result?.content;

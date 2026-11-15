@@ -8,6 +8,7 @@
 //   node scripts/fetch-ics.mjs <url> [<url>…]  # ad-hoc calendar URLs
 //   node scripts/fetch-ics.mjs --days 90       # change the look-ahead horizon (default 45)
 //   node scripts/fetch-ics.mjs --all           # include events already in state/seen.json
+//   ICS_DESC_LIMIT=6000 node scripts/fetch-ics.mjs  # longer descriptions (default 500 chars)
 //
 // Output: JSON array of { source, sourceUrl, region, tags, uid, recurring,
 // allDay, title, start, end, location, url, description }. Times are ISO 8601 in
@@ -129,7 +130,7 @@ for (const src of sources) {
       end: endTime ? toIso(endTime) : null,
       location: event.location || null,
       url: ve.getFirstPropertyValue("url") || null,
-      description: (event.description || "").slice(0, 500) || null,
+      description: (event.description || "").slice(0, Number(process.env.ICS_DESC_LIMIT ?? 500)) || null,
     });
   };
 
